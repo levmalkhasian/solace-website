@@ -22,6 +22,7 @@
 html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
+    background: var(--navy);
 }
 
 body {
@@ -100,6 +101,31 @@ nav .container {
 
 .nav-links a:hover {
     color: var(--text);
+}
+
+.nav-toggle {
+    display: none;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    transform-origin: center;
 }
 
 /* ---------- Hero ---------- */
@@ -330,6 +356,16 @@ footer .footer-links a:hover {
 }
 
 @media (max-width: 640px) {
+    body {
+        margin: 10px;
+        height: calc(100vh - 20px);
+        height: calc(100dvh - 20px);
+        overflow-y: auto;
+        overflow-x: hidden;
+        border: 2px solid rgba(255, 255, 255, 0.22);
+        border-radius: 20px;
+    }
+
     .hero {
         padding: 64px 0 48px;
     }
@@ -346,5 +382,50 @@ footer .footer-links a:hover {
     footer .container {
         flex-direction: column;
         text-align: center;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 0;
+        padding: 8px 24px 16px;
+        background: rgba(21, 24, 55, 0.95);
+        backdrop-filter: saturate(140%) blur(12px);
+        -webkit-backdrop-filter: saturate(140%) blur(12px);
+        border-bottom: 1px solid var(--navy-border);
+    }
+
+    .nav-links a {
+        padding: 14px 0;
+        font-size: 16px;
+        border-bottom: 1px solid var(--navy-border);
+    }
+
+    .nav-links a:last-child {
+        border-bottom: none;
+    }
+
+    .nav-toggle:checked ~ .nav-links {
+        display: flex;
+    }
+
+    .nav-toggle:checked ~ .hamburger span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .nav-toggle:checked ~ .hamburger span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .nav-toggle:checked ~ .hamburger span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
     }
 }
