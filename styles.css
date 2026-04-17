@@ -159,8 +159,16 @@ nav .container {
 .hero .tagline {
     font-size: clamp(18px, 2.2vw, 22px);
     color: var(--text-muted);
-    max-width: 560px;
+    max-width: 520px;
     margin: 0 auto 40px;
+    padding: 0 24px;
+}
+
+.cta-icon {
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    margin-right: 2px;
 }
 
 .cta {
@@ -303,7 +311,8 @@ footer .footer-links a:hover {
 
 /* ---------- Article pages (support / privacy) ---------- */
 .page {
-    padding: 72px 0 48px;
+    padding-top: 96px;
+    padding-bottom: 48px;
     max-width: 720px;
 }
 
@@ -356,14 +365,8 @@ footer .footer-links a:hover {
 }
 
 @media (max-width: 640px) {
-    body {
-        margin: 10px;
-        height: calc(100vh - 20px);
-        height: calc(100dvh - 20px);
-        overflow-y: auto;
-        overflow-x: hidden;
-        border: 2px solid rgba(255, 255, 255, 0.22);
-        border-radius: 20px;
+    .container {
+        padding: 0 20px;
     }
 
     .hero {
@@ -377,6 +380,11 @@ footer .footer-links a:hover {
 
     .features {
         padding: 56px 0;
+    }
+
+    .page {
+        padding-top: 72px;
+        padding-bottom: 48px;
     }
 
     footer .container {
